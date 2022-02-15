@@ -9,9 +9,10 @@ data<-read.csv("data/soilDataAll.csv")
 dataClimate<-read.csv("data/climateData.csv")
 
 
+
+
 #######What does this code do ########################
 d<-read.csv("data/soilDataAll.csv")
-colnames(d)
 d2<-d[d[,23]=="destruction",is.na(d[d[,23],][1,])==F]
 #Quite an extreme example 
 
@@ -35,7 +36,6 @@ soilDataPerPop<-aggregate(.~pop2,data=dataSoilDestruction[-c(15,16)],FUN=mean)  
                                                                                 #I removed the 15th and 16th column as
                                                                                 #these were not numeric
 
-
 #Combine data ####################################
 dataClimate<-read.csv("data/climateData.csv") #Load climate data
 
@@ -52,7 +52,7 @@ ggsave("scratch/popLocations.png")
 
 
 #Combined data has everything we want! we can now write it as a new data file
-write.csv("data/dataCombined.csv")
+write.csv(dataCombined,"data/dataCombined.csv")
 
 #Take a look at what code is necessary to get to this point! And recreate this in a new script to generate the dataCombined
 

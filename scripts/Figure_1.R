@@ -1,7 +1,7 @@
 rm(list=ls())
 #Analysis! #####################
 library(ggplot2)
-library(ggpubr)
+library(ggpubr) #<- This makes nice ggplot
 #Read the combined data
 dataCombined<-read.csv("data/dataCombined.csv")
 
