@@ -1,15 +1,14 @@
 rm(list=ls()) #This clears all data from the environment ensuring you do not accidently use data or functions from other scripts in this script
+
 #Load packages ##################
 library(ggplot2) #Load packages makes plots
 library(reshape2) #Reshape2 contains melt()
 #Create functions ############################
 SEM<-function(x){sd(x)/sqrt(length(x))}
+
 #load data ##########################
 data<-read.csv("data/soilDataAll.csv")
 dataClimate<-read.csv("data/climateData.csv")
-
-
-
 
 #######What does this code do ########################
 d<-read.csv("data/soilDataAll.csv")
@@ -47,7 +46,7 @@ dataCombined<-merge(dataClimate,soilDataPerPop,by="pop2") #Combine data sets bas
 #Explore the data make a plot! ####################
 #Make a first plot to look at where to populations are and their locations
 ggplot(dataCombined,aes(x=latitude,y=longitude,col=meta.population))+ #Plot the populations locations
-  geom_point(size=4)
+  geom_point(size=4)+ggtitle("Exploration.R")
 ggsave("scratch/popLocations.png")
 
 
